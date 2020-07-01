@@ -136,3 +136,12 @@ body {
     color: white;
     font-size: 5rem;
 }
+
+/*style winning message button*/
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.25em 0.5em;
+    cursor: pointer;
+}
