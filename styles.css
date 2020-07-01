@@ -1,0 +1,40 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+/*variables*/
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size)*0.9);
+}
+
+body {
+    margin: 0;
+}
+
+.board {
+
+    /*board takes up whole screen*/
+    width: 100vw;
+    height: 100vh;
+
+    /*center board*/
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    /*center X's and O's within cells*/
+    justify-items: center;
+    align-items: center;
+
+
+    /*arrange cells as 3x3*/
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: 1px solid black;
+}
+
