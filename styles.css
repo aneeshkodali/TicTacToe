@@ -38,3 +38,19 @@ body {
     border: 1px solid black;
 }
 
+/*remove top border for top 3 cells*/
+.cell:first-child, .cell:nth-child(2), .cell:nth-child(3) {
+    border-top: none;
+}
+/*remove left border for left 3 cells*/
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+/*remove right border for right 3 cells*/
+.cell:nth-child(3n+3) {
+    border-right: none;
+}
+/*remove bottom border for bottom 3 cells*/
+.cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
+    border-bottom: none;
+}
