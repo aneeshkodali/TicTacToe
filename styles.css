@@ -50,12 +50,12 @@ body {
     cursor: not-allowed;
 }
 
-.cell.x::before, .cell.x::after {
+.cell.x::before, .cell.x::after, .cell.circle::before {
     background-color: black;
 }
 
 
-.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after {
+.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after, .board.circle .cell:not(.x):not(.circle):hover::before {
     background-color: lightgrey;
 }
 
@@ -97,19 +97,23 @@ body {
 }
 
 /*create circle = 2 circles*/
-.cell.circle::before, .cell.circle::after {
+/*also similar styling for when hover over cell to display circle*/
+
+.cell.circle::before, .cell.circle::after, .board.circle .cell:not(.x):not(.circle):hover::before, .board.circle .cell:not(.x):not(.circle):hover::after {
     content: '';
     border-radius: 50%;
     position: absolute;
 }
 /*style the 'before' circle (larger one)*/
-.cell.circle::before {
+/*also similar styling for when hover over cell to display circle*/
+.cell.circle::before, .board.circle .cell:not(.x):not(.circle):hover::before {
     width: var(--mark-size);
     height: var(--mark-size);
-    background-color: black;
 }
 /*style the 'after' circle (smaller one)*/
-.cell.circle::after {
+/*also similar styling for when hover over cell to display circle*/
+
+.cell.circle::after, .board.circle .cell:not(.x):not(.circle):hover::after {
     width: calc(var(--mark-size)*0.7);
     height: calc(var(--mark-size)*0.7);
     background-color: white;
