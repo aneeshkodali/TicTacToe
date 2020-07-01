@@ -42,6 +42,12 @@ body {
     align-items: center;
     position: relative;
 
+    cursor: pointer;
+}
+
+/*change cursor on filled cell*/
+.cell.x, .cell.circle {
+    cursor: not-allowed;
 }
 
 /*remove top border for top 3 cells*/
