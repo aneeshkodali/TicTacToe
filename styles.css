@@ -36,6 +36,12 @@ body {
     width: var(--cell-size);
     height: var(--cell-size);
     border: 1px solid black;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
 
 /*remove top border for top 3 cells*/
@@ -53,4 +59,21 @@ body {
 /*remove bottom border for bottom 3 cells*/
 .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) {
     border-bottom: none;
+}
+
+/*create X = 2 vertical lines*/
+.cell.x::before, .cell.x::after {
+    content: '';
+    width: calc(var(--mark-size)*0.15);
+    height: var(--mark-size);
+    background-color: black;
+    position: absolute;
+}
+/*rotate one of the lines*/
+.cell.x::before {
+    transform: rotate(45deg);
+}
+/*rotate other line*/
+.cell.x::after {
+    transform: rotate(-45deg);
 }
