@@ -122,6 +122,7 @@ body {
 
 /*style winning message*/
 .winning-message {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -129,7 +130,6 @@ body {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.9);
 
-    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -152,4 +152,9 @@ body {
     color: white;
     border-color: white;
      
+}
+
+.winning-message.show {
+    display: flex;
+
 }
