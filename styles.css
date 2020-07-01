@@ -50,6 +50,10 @@ body {
     cursor: not-allowed;
 }
 
+
+
+
+
 /*remove top border for top 3 cells*/
 .cell:first-child, .cell:nth-child(2), .cell:nth-child(3) {
     border-top: none;
@@ -68,7 +72,8 @@ body {
 }
 
 /*create X = 2 vertical lines*/
-.cell.x::before, .cell.x::after {
+/*also similar styling for when hover over cell to display X*/
+.cell.x::before, .cell.x::after, .board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after {
     content: '';
     width: calc(var(--mark-size)*0.15);
     height: var(--mark-size);
@@ -76,11 +81,13 @@ body {
     position: absolute;
 }
 /*rotate one of the lines*/
-.cell.x::before {
+/*also similar styling for when hover over cell to display X*/
+.cell.x::before, .board.x .cell:not(.x):not(.circle):hover::before {
     transform: rotate(45deg);
 }
 /*rotate other line*/
-.cell.x::after {
+/*also similar styling for when hover over cell to display X*/
+.cell.x::after, .board.x .cell:not(.x):not(.circle):hover::after {
     transform: rotate(-45deg);
 }
 
