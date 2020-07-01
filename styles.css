@@ -77,3 +77,23 @@ body {
 .cell.x::after {
     transform: rotate(-45deg);
 }
+
+/*create circle = 2 circles*/
+.cell.circle::before, .cell.circle::after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+}
+/*style the 'before' circle (larger one)*/
+.cell.circle::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+    background-color: black;
+}
+/*style the 'after' circle (smaller one)*/
+.cell.circle::after {
+    width: calc(var(--mark-size)*0.7);
+    height: calc(var(--mark-size)*0.7);
+    background-color: white;
+
+}
