@@ -50,8 +50,14 @@ body {
     cursor: not-allowed;
 }
 
+.cell.x::before, .cell.x::after {
+    background-color: black;
+}
 
 
+.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after {
+    background-color: lightgrey;
+}
 
 
 /*remove top border for top 3 cells*/
@@ -77,7 +83,6 @@ body {
     content: '';
     width: calc(var(--mark-size)*0.15);
     height: var(--mark-size);
-    background-color: black;
     position: absolute;
 }
 /*rotate one of the lines*/
