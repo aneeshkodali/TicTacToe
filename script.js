@@ -1,6 +1,15 @@
 const X_CLASS = "x";
 const CIRCLE_CLASS = "circle";
-
+const WINNING_COMBINATIONS = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+];
 const cellElements = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("board");
 
@@ -28,6 +37,9 @@ function handleClick(e) {
     // place mark
     placeMark(cell, currentClass);
     // check for win
+     if (checkWin(currentClass)) {
+        console.log('winner');
+     }
     // check for draw
     // switch turns
     swapTurns();
@@ -54,4 +66,16 @@ function setBoardHoverClass() {
     } else {
         board.classList.add(X_CLASS);
     }
+}
+
+// function to check for a win
+function checkWin(currentClass) {
+
+    // check if ANY winning combination met =>
+        // for a given combination, do all cells in that combination have the same class?
+    return WINNING_COMBINATIONS.some(combination => {
+        return combination.every(index => {
+            return cellElements[index].classList.contains(currentClass);
+        })
+    })
 }
