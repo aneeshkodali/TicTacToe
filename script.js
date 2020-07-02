@@ -7,10 +7,16 @@ const board = document.getElementById("board");
 
 let circleTurn;
 
-cellElements.forEach(cell => {
-    // only fire click event ONCE
-    cell.addEventListener('click', handleClick, {once: true})
-});
+startGame();
+
+function startGame() {
+    circleTurn = false;
+    cellElements.forEach(cell => {
+        // only fire click event ONCE
+        cell.addEventListener('click', handleClick, {once: true})
+    });
+    setBoardHoverClass();
+}
 
 function handleClick(e) {
     // get cell that was clicked on
