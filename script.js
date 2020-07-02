@@ -14,19 +14,33 @@ const cellElements = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("board");
 const winningMessageTextElement = document.querySelector("[data-winning-message-text]");
 const winningMessageElement = document.getElementById("winningMessage");
+const restartButton = document.getElementById("restartButton");
 
 
 let circleTurn;
 
+// FUNCTION TO START THE GAME
 startGame();
+
+// function to restart game 
+restartButton.addEventListener('click', startGame);
 
 function startGame() {
     circleTurn = false;
     cellElements.forEach(cell => {
+        // remove X and O classes
+        cell.classList.remove(X_CLASS);
+        cell.classList.remove(CIRCLE_CLASS);
+        // remove event listener
+        cell.removeEventListener('click', handleClick)
         // only fire click event ONCE
-        cell.addEventListener('click', handleClick, {once: true})
+        cell.addEventListener('click', handleClick, {once: true});
+        
     });
     setBoardHoverClass();
+
+    // remove the winning message (if any)
+    winningMessageElement.classList.remove('show');
 }
 
 function handleClick(e) {
