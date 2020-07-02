@@ -2,6 +2,8 @@ const X_CLASS = "x";
 const CIRCLE_CLASS = "circle";
 
 const cellElements = document.querySelectorAll("[data-cell]");
+const board = document.getElementById("board");
+
 
 let circleTurn;
 
@@ -18,11 +20,12 @@ function handleClick(e) {
     const currentClass = circleTurn ? CIRCLE_CLASS : X_CLASS;
 
     // place mark
-    placeMark(cell, currentClass)
+    placeMark(cell, currentClass);
     // check for win
     // check for draw
     // switch turns
-    swapTurns()
+    swapTurns();
+    setBoardHoverClass();
 }
 
 // function to place X or O in a cell
@@ -33,4 +36,16 @@ function placeMark(cell, currentClass) {
 // function to change the turn
 function swapTurns() {
     circleTurn = !circleTurn;
+}
+
+// function to add hover to whoever's turn
+// gray X and O show up
+function setBoardHoverClass() {
+    board.classList.remove(X_CLASS);
+    board.classList.remove(CIRCLE_CLASS);
+    if (circleTurn) {
+        board.classList.add(CIRCLE_CLASS);
+    } else {
+        board.classList.add(X_CLASS);
+    }
 }
