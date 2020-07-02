@@ -22,8 +22,15 @@ function handleClick(e) {
     // check for win
     // check for draw
     // switch turns
+    swapTurns()
 }
 
+// function to place X or O in a cell
 function placeMark(cell, currentClass) {
     cell.classList.add(currentClass);
+}
+
+// function to change the turn
+function swapTurns() {
+    circleTurn = !circleTurn;
 }
